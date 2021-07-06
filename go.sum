@@ -1,5 +1,7 @@
 github.com/PuerkitoBio/goquery v1.7.0 h1:O5SP3b9JWqMSVMG69zMfj577zwkSNpxrFf7ybS74eiw=
 github.com/PuerkitoBio/goquery v1.7.0/go.mod h1:GsLWisAFVj4WgDibEWF4pvYnkVQBpKBKeU+7zCJoLcc=
+github.com/abhishekkr/hanasuhon v0.0.0-20210706002902-c008c36b3c58 h1:mydGMkmPica/pBeE7sX73QRIJxjkDqK/CmpgT2DtiOw=
+github.com/abhishekkr/hanasuhon v0.0.0-20210706002902-c008c36b3c58/go.mod h1:ESiJODW+p9/0YI6rxpAVyg/ves4mjsGNqzlbd4nnqzo=
 github.com/alecthomas/assert v0.0.0-20170929043011-405dbfeb8e38 h1:smF2tmSOzy2Mm+0dGI2AIUHY+w0BUc+4tn40djz7+6U=
 github.com/alecthomas/assert v0.0.0-20170929043011-405dbfeb8e38/go.mod h1:r7bzyVFMNntcxPZXK3/+KdruV1H5KSlyVY0gc+NgInI=
 github.com/alecthomas/chroma v0.8.2 h1:x3zkuE2lUk/RIekyAJ3XRqSCP4zwWDfcw/YJCuCAACg=

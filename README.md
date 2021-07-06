@@ -1,21 +1,21 @@
 
-## Hanasuhon
+## Vachak
 
-> bad translation for 'speaking book'
+> _hindi_ for `Reader`
 
-* tackling EPUB format first
+* implementing EPUB format first
 
 * usages
 
 ```
 ## show help usage
-go run hanasuhon.go -h
+go run vachak.go -h
 
 ## as of now prints all pages at once
-go run hanasuhon.go -epub /path/to/my.epub
+go run vachak.go -epub /path/to/my.epub
 
 ## for Text To Speech enabled; it's slow as of now
-go run hanasuhon.go -tts -epub /path/to/my.epub
+go run vachak.go -tts -epub /path/to/my.epub
 ```
 
 ---

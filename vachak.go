@@ -4,10 +4,10 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/abhishekkr/hanasuhon/book"
-	"github.com/abhishekkr/hanasuhon/cui"
-	"github.com/abhishekkr/hanasuhon/epubreader"
-	"github.com/abhishekkr/hanasuhon/tts"
+	"github.com/abhishekkr/vachak/book"
+	"github.com/abhishekkr/vachak/cui"
+	"github.com/abhishekkr/vachak/epubreader"
+	"github.com/abhishekkr/vachak/tts"
 )
 
 var (

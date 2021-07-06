@@ -3,7 +3,7 @@ package cui
 import (
 	"fmt"
 
-	"github.com/abhishekkr/hanasuhon/book"
+	"github.com/abhishekkr/vachak/book"
 
 	"github.com/charmbracelet/glamour"
 )

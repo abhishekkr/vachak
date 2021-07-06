@@ -1,9 +1,10 @@
-module github.com/abhishekkr/hanasuhon
+module github.com/abhishekkr/vachak
 
 go 1.15
 
 require (
 	github.com/PuerkitoBio/goquery v1.7.0
+	github.com/abhishekkr/hanasuhon v0.0.0-20210706002902-c008c36b3c58
 	github.com/charmbracelet/glamour v0.3.0
 	github.com/hegedustibor/htgo-tts v0.0.0-20210201070456-160968fe187c
 	github.com/kapmahc/epub v0.1.1
