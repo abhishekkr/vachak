@@ -24,7 +24,7 @@ func main() {
 	}
 }
 
-func reader(count int, page book.Page) {
+func reader(page book.Page) {
 	cui.Slides(page)
 	if *isTts {
 		tts.Espeak(page)

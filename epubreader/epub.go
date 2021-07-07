@@ -14,23 +14,44 @@ type Epub struct {
 	Filepath string
 }
 
-func EpubReader(epubFilepath string, reader func(int, book.Page)) {
+func EpubReader(epubFilepath string, reader func(book.Page)) {
 	fyl := Epub{Filepath: epubFilepath}
 	fyl.open()
 	defer fyl.close()
 	fyl.metadata()
 	fmt.Printf("Rootfile Path:%v\n\n", fyl.Book.Container.Rootfile.Path)
-	fyl.navPointsReader(fyl.Book.Ncx.Points, reader)
+
+	pageQueue := fyl.navPointsLoader([]string{}, fyl.Book.Ncx.Points)
+	fyl.navPointsReader(pageQueue, reader)
 }
 
-func (e *Epub) navPointsReader(points []epub.NavPoint, reader func(int, book.Page)) {
-	for idx, point := range points {
-		fmt.Printf("Text: %v\n", point.Text)
-		fmt.Printf("Content Src: %v\n", point.Content.Src)
+func (e *Epub) navPointsLoader(pages []string, points []epub.NavPoint) []string {
+	for _, point := range points {
+		xmlfile := strings.Split(point.Content.Src, "#")[0]
+		if pageQueued(pages, xmlfile) {
+			continue
+		}
+		pages = append(pages, xmlfile)
+		pages = e.navPointsLoader(pages, point.Points)
+	}
+	return pages
+}
 
-		page := e.pageReader(point.Content.Src)
-		reader(idx, page)
-		e.navPointsReader(point.Points, reader)
+func pageQueued(pages []string, xmlfile string) bool {
+	for _, pagePath := range pages {
+		if xmlfile == pagePath {
+			return true
+		}
+	}
+	return false
+}
+
+func (e *Epub) navPointsReader(pageQueue []string, reader func(book.Page)) {
+	for _, xmlfile := range pageQueue {
+		fmt.Printf("Content Src: %v\n", xmlfile)
+
+		page := e.pageReader(xmlfile)
+		reader(page)
 	}
 }
 
