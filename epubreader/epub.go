@@ -16,19 +16,25 @@ type Epub struct {
 
 func EpubReader(epubFilepath string, reader func(int, book.Page)) {
 	fyl := Epub{Filepath: epubFilepath}
-	fyl.Open()
-	fyl.Metadata()
+	fyl.open()
+	defer fyl.close()
+	fyl.metadata()
 	fmt.Printf("Rootfile Path:%v\n\n", fyl.Book.Container.Rootfile.Path)
-	for idx, point := range fyl.Book.Ncx.Points {
+	fyl.navPointsReader(fyl.Book.Ncx.Points, reader)
+}
+
+func (e *Epub) navPointsReader(points []epub.NavPoint, reader func(int, book.Page)) {
+	for idx, point := range points {
 		fmt.Printf("Text: %v\n", point.Text)
 		fmt.Printf("Content Src: %v\n", point.Content.Src)
 
-		page := fyl.ReadPage(point.Content.Src)
+		page := e.pageReader(point.Content.Src)
 		reader(idx, page)
+		e.navPointsReader(point.Points, reader)
 	}
 }
 
-func (e *Epub) ReadPage(xmlpath string) *Page {
+func (e *Epub) pageReader(xmlpath string) *Page {
 	page := &Page{Epub: e, Path: xmlpath}
 	err := page.read()
 	if err != nil {
@@ -37,7 +43,7 @@ func (e *Epub) ReadPage(xmlpath string) *Page {
 	return page //page.XML.Title, bodyText(page.XML.Body.InnerXml)
 }
 
-func (e *Epub) Open() {
+func (e *Epub) open() {
 	var err error
 	e.Book, err = epub.Open(e.Filepath)
 	if err != nil {
@@ -45,11 +51,11 @@ func (e *Epub) Open() {
 	}
 }
 
-func (e *Epub) Close() {
+func (e *Epub) close() {
 	e.Book.Close()
 }
 
-func (e *Epub) Metadata() {
+func (e *Epub) metadata() {
 	fmt.Printf("title: %v\ncreator(s): %v\ndescription: %v\n",
 		strings.Join(e.Book.Opf.Metadata.Title, ", "),
 		strings.Join(e.creators(), ", "),
