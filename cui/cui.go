@@ -14,9 +14,11 @@ import (
 )
 
 func Slides(page book.Page) error {
-	out, err := glamour.Render(page.Markdown(), "dark")
-	//fmt.Print(out)
-	render(page, out)
+	md, err := glamour.Render(page.Markdown(), "dark")
+	if strings.TrimSpace(md) == "" {
+		return nil
+	}
+	render(page, md)
 	return err
 }
 
