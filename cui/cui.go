@@ -140,7 +140,7 @@ func (m model) View() string {
 	}
 
 	headerTop := "╭───────────╮"
-	headerMid := "│ Vachak :) ├-[ " + m.page.BookName() + " ]├"
+	headerMid := "│ Vachak :) ├-[ " + m.page.BookName() + " ]├ (mouse OR arrow-keys OR pg-up/down) to SCROLL | qq OR <ESC> to close chapter"
 	headerBot := "╰───────────╯"
 	headerMid += strings.Repeat("─", m.viewport.Width-runewidth.StringWidth(headerMid))
 	header := fmt.Sprintf("%s\n%s\n%s", headerTop, headerMid, headerBot)
