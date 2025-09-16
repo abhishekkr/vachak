@@ -1,0 +1,43 @@
+tuido:
+    - title: ToDo
+      tasks:
+        - created: "2025-09-17T04:47:10.465440738+05:30"
+          updated: "2025-09-17T04:47:10.466320329+05:30"
+          index: 0
+          title: Add PDF Read Support for Text
+          description: utilize a Go package able to read/parse PDF files to support Vachak to display PDF Text as well
+        - created: "2025-09-17T04:47:54.469845026+05:30"
+          updated: "2025-09-17T04:47:54.470275113+05:30"
+          index: 1
+          title: Add PDF Read support for Images
+          description: Add PDF read support to manage images as well.. show local temp path and display with Kitty if can
+        - created: "2025-09-17T04:48:37.233355079+05:30"
+          updated: "2025-09-17T04:48:37.233964381+05:30"
+          index: 2
+          title: Add Text Read support
+          description: Add support to load/display TXT as well, so simple text files can be piped into TTS as well
+        - created: "2025-09-17T04:49:09.881052158+05:30"
+          updated: "2025-09-17T04:49:09.881895431+05:30"
+          index: 3
+          title: Fix TTS support
+          description: Fix TTS support hopefully with Llama.cpp instead of espeak.
+        - created: "2025-09-17T04:50:00.022934995+05:30"
+          updated: "2025-09-17T04:50:00.023365432+05:30"
+          index: 4
+          title: Add Markdown Render support using Glamour
+          description: Using BubbleTea/Glamour implement Markdown render support; in this task test with simple Text files.
+        - created: "2025-09-17T04:51:12.612246639+05:30"
+          updated: "2025-09-17T04:51:12.612796785+05:30"
+          index: 5
+          title: Add URL content Render support
+          description: HTTP fetch URL content, and display as Text
+    - title: W.I.P.
+      tasks: []
+    - title: Done
+      tasks: []
+    - title: Blocked
+      tasks: []
+    - title: Abandon
+      tasks: []
+    - title: Archive
+      tasks: []
