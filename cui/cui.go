@@ -3,7 +3,7 @@ package cui
 import (
 	"strings"
 
-	"github.com/abhishekkr/vachak/book"
+	"vachak/book"
 
 	glamour "github.com/charmbracelet/glamour"
 )

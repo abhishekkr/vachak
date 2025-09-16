@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/abhishekkr/vachak/book"
+	"vachak/book"
 
 	viewport "github.com/charmbracelet/bubbles/viewport"
 	tea "github.com/charmbracelet/bubbletea"
@@ -124,7 +124,12 @@ func (m model) View() string {
 	headerTop := "╭───────────╮"
 	headerMid := "│ Vachak :) ├-[ " + m.page.BookName() + " ]├ (mouse OR arrow-keys OR pg-up/down) to SCROLL | qq OR <ESC> to close chapter"
 	headerBot := "╰───────────╯"
-	headerMid += strings.Repeat("─", m.viewport.Width-runewidth.StringWidth(headerMid))
+
+	headerMidSepLength := m.viewport.Width - runewidth.StringWidth(headerMid)
+	if headerMidSepLength < 1 {
+		headerMidSepLength = 10
+	}
+	headerMid += strings.Repeat("─", headerMidSepLength)
 	header := fmt.Sprintf("%s\n%s\n%s", headerTop, headerMid, headerBot)
 
 	footerTop := "╭──────╮"

@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/abhishekkr/vachak/book"
+	"vachak/book"
 
-	epub "github.com/kapmahc/epub"
+	epub "github.com/ChaosCloud/go-epub" // fork of 9yr old epub parser
 )
 
 type Epub struct {
